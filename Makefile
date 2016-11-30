@@ -5,7 +5,6 @@ help:
 	@echo "clean-build - remove build artifacts"
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "clean-test - remove test and coverage artifacts"
-	@echo "lint - check style with flake8"
 	@echo "test - run tests quickly with the default Python"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
@@ -29,9 +28,6 @@ clean-test:
 	rm -f .coverage
 	rm -fr htmlcov/
 
-lint:
-	flake8 tapioca-rocketchat test
-
 test: clean
 	python setup.py test
 
@@ -43,9 +39,15 @@ docs:
 	$(MAKE) -C docs html
 	open docs/_build/html/index.html
 
-release: clean
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+release.test: dist
+	python setup.py register -r pypitest
+	python setup.py sdist upload -r pypitest # --identity="Elio Esteves Duarte" --sign
+	python setup.py bdist_wheel upload -r pypitest #--identity="Elio Esteves Duarte" --sign
+
+release: dist
+	python setup.py register -r pypi
+	python setup.py sdist upload -r pypi #--identity="Elio Esteves Duarte" --sign
+	python setup.py bdist_wheel upload -r pypi #--identity="Elio Esteves Duarte" --sign
 
 dist: clean
 	python setup.py sdist

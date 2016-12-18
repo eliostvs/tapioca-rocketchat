@@ -22,3 +22,7 @@ api.send(room='room-id').post(data={'msg': 'your-message'})
 api.leave(room='room-id').post()
 api.logoff().post()
 ```
+
+## Changelog
+
+- Using Rocket.Chat APi 0.48.1

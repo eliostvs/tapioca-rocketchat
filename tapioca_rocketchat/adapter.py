@@ -9,6 +9,7 @@ from .auth import RocketAuth
 
 class RocketChatClientAdapter(JSONAdapterMixin, TapiocaAdapter):
     resource_mapping = RESOURCE_MAPPING
+    API_VERSION = 1
 
     def get_request_kwargs(self, api_params, *args, **kwargs):
         params = super(RocketChatClientAdapter, self).get_request_kwargs(
@@ -23,7 +24,8 @@ class RocketChatClientAdapter(JSONAdapterMixin, TapiocaAdapter):
         return params
 
     def get_api_root(self, api_params):
-        return '{}/api'.format(api_params.get('host', 'http://localhost'))
+        host = api_params.get('host', 'http://localhost')
+        return '{host}/api/v{version}'.format(host=host, version=self.API_VERSION)
 
 
 RocketChat = generate_wrapper_from_adapter(RocketChatClientAdapter)

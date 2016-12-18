@@ -32,7 +32,8 @@ class RocketAuth(AuthBase):
             raise InvalidConfiguration('host and username/password or token/user_id')
 
     def _do_login(self, host, user, password):
-        response = requests.post('{}/api/login'.format(host), data=dict(user=user, password=password))
+        d = dict(user=user.encode('utf-8'), password=password.encode('utf-8'))
+        response = requests.post('{}/api/v1/login'.format(host), data=d)
 
         if response.status_code != 200:
             raise FailedLogin
@@ -46,8 +47,8 @@ class RocketAuth(AuthBase):
         self.user_id = json['data']['userId']
 
     def _set_auth_headers(self, request):
-        request.headers['X-Auth-Token'] = self.token
-        request.headers['X-User-Id'] = self.user_id
+        request.headers['X-Auth-Token'] = self.token.encode('utf-8')
+        request.headers['X-User-Id'] = self.user_id.encode('utf-8')
 
     def __call__(self, request):
         self._set_auth_headers(request)

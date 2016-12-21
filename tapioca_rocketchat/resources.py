@@ -31,7 +31,7 @@ RESOURCE_MAPPING = {
         'methods': ['GET', 'POST']
     },
 
-    'send_message': {
+    'post_message': {
         'resource': '/chat.postMessage',
         'docs': 'https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage',
         'methods': ['POST']
@@ -83,6 +83,18 @@ RESOURCE_MAPPING = {
         'resource': '/users.update',
         'docs': 'https://rocket.chat/docs/developer-guides/rest-api/users/update',
         'methods': ['POST']
+    },
+
+    'channel_create': {
+        'resource': '/channels.create',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/channels/create',
+        'methods': ['POST']
+    },
+
+    'channel_info': {
+        'resource': '/channels.info',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/channels/info',
+        'methods': ['GET']
     },
 
     'channel_add': {
@@ -178,6 +190,96 @@ RESOURCE_MAPPING = {
     'channel_unarchive': {
         'resource': '/channels.unarchive',
         'docs': 'https://rocket.chat/docs/developer-guides/rest-api/channels/unarchive',
+        'methods': ['POST']
+    },
+
+    'group_archive': {
+        'resource': '/groups.archive',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/archive',
+        'methods': ['POST']
+    },
+
+    'group_close': {
+        'resource': '/groups.close',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/close',
+        'methods': ['POST']
+    },
+
+    'group_create': {
+        'resource': '/groups.create',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/create',
+        'methods': ['POST']
+    },
+
+    'group_history': {
+        'resource': '/groups.history',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/history',
+        'methods': ['GET']
+    },
+
+    'group_info': {
+        'resource': '/groups.info',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/info',
+        'methods': ['GET']
+    },
+
+    'group_invite': {
+        'resource': '/groups.invite',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/invite',
+        'methods': ['POST']
+    },
+
+    'group_kick': {
+        'resource': '/groups.kick',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/kick',
+        'methods': ['POST']
+    },
+
+    'group_leave': {
+        'resource': '/groups.leave',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/leave',
+        'methods': ['POST']
+    },
+
+    'group_list': {
+        'resource': '/groups.list',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/list',
+        'methods': ['GET']
+    },
+
+    'group_open': {
+        'resource': '/groups.open',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/open',
+        'methods': ['POST']
+    },
+
+    'group_rename': {
+        'resource': '/groups.rename',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/rename',
+        'methods': ['POST']
+    },
+
+    'group_description': {
+        'resource': '/groups.setDescription',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/setdescription',
+        'methods': ['POST']
+    },
+
+    'group_purpose': {
+        'resource': '/groups.setPurpose',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/setpurpose',
+        'methods': ['POST']
+    },
+
+    'group_topic': {
+        'resource': '/groups.setTopic',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/settopic',
+        'methods': ['POST']
+    },
+
+    'group_unarchive': {
+        'resource': '/groups.unarchive',
+        'docs': 'https://rocket.chat/docs/developer-guides/rest-api/groups/unarchive',
         'methods': ['POST']
     },
 }
